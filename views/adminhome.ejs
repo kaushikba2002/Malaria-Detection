@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate.ejs')%> 
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <%for(let patient of arr){%>
+            <tr>
+        <th scope="row"><a href="/adminpatient/<%=patient.pid%>"><%= patient.fname+patient.mname+patient.lname%>hhh</a></th>  <!--patient.fname+patient.mname+patient.lname-->
+        <td><%=patient.pid %></td>  <!--patient.pid-->
+        <td>status</td>
+            </tr>
+        <%}%>
+    </tbody>
+  </table>
