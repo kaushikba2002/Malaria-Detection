@@ -1,5 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
 * {margin: 0; padding: 0; box-sizing: border-box;}
-body {background: #f6f6f6; color: #444; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1;}
+body { color: #444; font-family: 'Raleway', sans-serif; font-size: 16px; line-height: 1;}
 .container {max-width: 1100px; padding: 0 20px; margin:0 auto;}
 .panel {margin: 100px auto 40px; max-width: 500px; text-align: center;}
 .button_outer {background: #83ccd3; border-radius:30px; text-align: center; height: 50px; width: 200px; display: inline-block; transition: .2s; position: relative; overflow: hidden;}

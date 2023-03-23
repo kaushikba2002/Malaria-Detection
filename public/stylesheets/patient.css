@@ -1,5 +1,5 @@
 body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
 }
 .emp-profile{
     padding: 3%;
@@ -92,4 +92,8 @@ body{
 .profile-tab p{
     font-weight: 600;
     color: #0062cc;
+}
+
+.thiss{
+    text-align: center;
 }

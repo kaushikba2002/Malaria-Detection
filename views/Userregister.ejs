@@ -8,14 +8,14 @@
     <link href="/stylesheets/register.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
+<body class="bod">
   <section class="h-100 h-custom gradient-custom-2">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
           <div class="card card-registration card-registration-2" style="border-radius: 15px;">
             <div class="card-body p-0">
-              <form action="/userregister/<%=did%>/<%=lid%>" method="POST">
+              <form action="/userregister/<%=did%>" method="POST">
               <div class="row g-0">
 
 
@@ -86,6 +86,13 @@
                       <div class="form-outline">
                         <input type="text" id="form3Examplev4" class="form-control form-control-lg" name="user[marital]" />
                         <label class="form-label" for="form3Examplev4">Marital status</label>
+                      </div>
+                      <div class="mb-4 mt-4 pb-2">
+                        <select class="select" name="user[lab]">
+                          <%for(let lab of result){%>
+                            <option value="<%=lab.lid%>"><%=lab.name%></option>
+                            <%}%>
+                        </select>
                       </div>
                     </div>
                   </div>

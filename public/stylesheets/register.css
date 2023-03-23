@@ -1,3 +1,7 @@
+.bod{
+    background-color: #A6AF9D;
+}
+
 @media (min-width: 1025px) {
     .h-custom {
     height: 100vh !important;

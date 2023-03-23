@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="/stylesheets/patient.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/patent2.css" rel="stylesheet" type="text/css">
+      
+
+</head>
+<body class="d-flex flex-column vh-100" style=" background-color: #3AAFA9;">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">MD</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/adminhome/<%=did%>"><i class="bi bi-arrow-left-circle"></i> Back</a>
+              </li>
+            </ul>
+        </div>
+        </div>
+      </nav>
+
+      <%function convert(str) {%>
+        <% var date = new Date(str)%>
+          <%var mnth = ("0" + (date.getMonth() + 1)).slice(-2)%>
+          <%var day = ("0" + date.getDate()).slice(-2)%>
+        <% return [date.getFullYear(), mnth, day].join("-")%>
+       <%}%>
+
+    <main class="container mt-5">
+        <%-include('./partials/flash')%>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="card mb-4 border-dark">
+    <div class="card-body">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-8 mt=5">
+                    
+                </div>
+                <div class="col-md-8 mt-3">
+                    <div class="profile-head">
+                                <h2 class="mb-4">
+                                    <%=rowp.first_name+" "+rowp.middle_name+" "+rowp.last_name%>
+                                </h2>
+                                
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="row">
+                <!-- <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>WORK LINK</p>
+                        <a href="">Website Link</a><br/>
+                        <a href="">Bootsnipp Profile</a><br/>
+                        <a href="">Bootply Profile</a>
+                        <p>SKILLS</p>
+                        <a href="">Web Designer</a><br/>
+                        <a href="">Web Developer</a><br/>
+                        <a href="">WordPress</a><br/>
+                        <a href="">WooCommerce</a><br/>
+                        <a href="">PHP, .Net</a><br/>
+                    </div>
+                </div> -->
+                <div class="col-md-10">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>User Id</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.pid%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.fname+rowp.mname+rowp.lname%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Age</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.age%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Gender</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.gender%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Local address</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.ap+", "+rowp.street%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>City</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.city%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>State</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.state%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Phone</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=rowp.contact%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date of Birth</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=convert(rowp.dob)%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date of registration</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%=convert(rowp.reg_date)%></p>
+                                        </div>
+                                    </div>
+
+
+
+                        </div>
+                        <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Experience</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hourly Rate</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>10$/hr</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Total Projects</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>230</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>English Level</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Availability</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>6 months</p>
+                                        </div>
+                                    </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Your Bio</label><br/>
+                                    <p>Your detail description</p>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+
+<div class="">
+  <div class="card mb-4 border-dark">
+    <div class="card-body">
+        <h3>Upload image:</h3>
+        <%if(upload){%>
+
+            <form action="/upload/<%=did%>/<%=rowp.pid%>" method="POST" enctype="multipart/form-data">
+                <!-- <input type="file" name="image" /> -->
+            <div class="mt-4">
+                <input class="form-control" type="file" id="formFile" name="image">
+                <button type="button submit" class="btn mt-4 mb-4" style="background-color: #17252A; color:#DEF2F1;">Upload</button>
+            </div>
+            </form> 
+            <%} else{%> 
+                <h5 style="color: green">Image uploaded<b><i class="bi bi-check"></i> </b></h5>
+                <%}%>
+    </div>
+  </div>
+</div>
+
+
+  <div class="card mb-4 border-dark">
+    <div class="card-body">
+        <h3 class="mb-4">Upload blood test details:</h3>
+        <%if(generate){%>
+            <form action="/generate/<%=did%>/<%=rowp.pid%>" method="POST">
+                <div class="form-group">
+                  <label for="calcium">Calcium (mmol/L):</label>
+                  <input type="text" class="form-control" id="calcium"  placeholder="Enter calcium level" name="calcium" required>
+                </div>
+                <div class="form-group">
+                  <label for="cholesterol">Cholesterol (mmol/L):</label>
+                  <input type="text" class="form-control" id="cholesterol" placeholder="Enter cholesterol level:" name="cholesterol" required>
+                </div>
+                <div class="form-group">
+                  <label for="glucose">Glucose (mmol/L):</label>
+                  <input type="text" class="form-control" id="glucose" placeholder="Enter glucose level:" name="glucose" required>
+                </div>
+                <div class="form-group">
+                  <label for="uric">Uric acid (umol/L):</label>
+                  <input type="text" class="form-control" id="uric" placeholder="Enter uric acid level:" name="uric" required>
+                </div>
+                <button type="button submit" class="btn mt-4 mb-4" style="background-color: #17252A; color:#DEF2F1;">Generate report</button>
+              </form>
+              <%} else{%>
+                <h5 style="color: green;">Blood details uploaded <b><i class="bi bi-check"></i> </b></h5>
+                <%}%>
+    </div>
+  </div>
+
+
+  <%if(!upload&&!generate){%>
+    <div class="card mb-4 border-dark">
+        <div class="card-body">
+            <form action="/viewreport/<%=did%>/<%=rowp.pid%>">
+                <button type="submit" class="btn btn-primary mb-4">View report</button>
+           </form>
+           <div class="card mb-4">
+            <div class="card-body">
+                <%if(rowf.length!=0){%>
+              <h4>Feedback by patient:</h4>
+              <p><%=rowf.comments%></p>
+              <%}%>
+              <%if(rowf.length==0){%>
+                <h6>No feedback given yet</h6>
+                <%}%>
+            </div>
+          </div>
+           </div>
+      </div>
+          <%}%>
+
+
+ 
+
+
+
+
+</main>
+<%-include('./partials/footer')%>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/patent2.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
+
